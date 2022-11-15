@@ -1,6 +1,6 @@
 class Store < ActiveRecord::Base
   has_many :employees
-  validates :name, length: { minimum: 3, too_short: "%{count} characters is the minimum aloud" }
+  validates :name, length: { minimum: 3 }
   validates :annual_revenue, numericality: { only_integer: true, greater_than: 0 }
   validate :carry_men_or_women_apparel
 
@@ -8,7 +8,7 @@ class Store < ActiveRecord::Base
     if mens_apparel.present? || womens_apparel.present?
       return true
     else
-      errors.add(:mens_apparel, :womens_apparel, "Must contain either men/women apparel")
+      errors.add(:mens_apparel, :womens_apparel, message: "Must contain either men/women apparel")
     end
   end
 end
