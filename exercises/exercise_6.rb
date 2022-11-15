@@ -42,7 +42,7 @@ puts "----------"
 @store2.employees.create(
   first_name: "Rabs", 
   last_name: "W",
-  hourly_rate: 300
+  hourly_rate: 197
 )
 
 puts Employee.count
